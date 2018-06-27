@@ -15,6 +15,20 @@ var client = new Twitter(keys.twitter);
 
 var argumentOne = process.argv[2];
 var argumentTwo = process.argv[3];
+var argumentThree = process.argv[4];
+var argumentFour = process.argv[5];
+var combined;
+function crazyMultiWords() {
+    var words = ""
+    for (var i = 3; i < process.argv.length; i++) {
+        // if (words == "") {
+        //     words = words + process.argv[i] + " "
+        // }else{
+        words = words + process.argv[i] + " "
+    }
+    return words
+}
+
 
 switch (argumentOne) {
     case "spotify":
@@ -88,7 +102,14 @@ function spotifyIt() {
 };
 
 function omdb() {
-    request(`http://www.omdbapi.com/?t=${argumentTwo}&apikey=Trilogy&plot=short`,
+    // if (typeof argumentFour != "undefined") {
+    //     combined = argumentTwo + "%20" + argumentThree + "%20" + argumentFour;
+    // } else if (typeof argumentThree != "undefined") {
+    //     combined = argumentTwo + "%20" + argumentThree;
+    // } else {
+    //     combined = argumentTwo;
+    // }
+    request(`http://www.omdbapi.com/?t=${crazyMultiWords()}&apikey=Trilogy&plot=short`,
         function (error, response, body) {
             if (!error) {
                 // console.log(JSON.parse(body));
