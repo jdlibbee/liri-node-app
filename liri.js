@@ -57,7 +57,7 @@ switch (argumentOne) {
 }
 
 function twitter() {
-    var params = { screen_name: argumentTwo, result_type: "recent", count: "20", };
+    var params = { screen_name: crazyMultiWords(), result_type: "recent", count: "20", };
     client.get('statuses/user_timeline', params, function (err, tweets, response) {
         if (!err) {
             for (var i = 0; i < tweets.length; i++) {
@@ -77,7 +77,7 @@ function twitter() {
 };
 
 function spotifyIt() {
-    spotify.search({ type: 'track', query: argumentTwo, market: 'US', popularity: 100, limit: 5 }, function (err, result) {
+    spotify.search({ type: 'track', query: crazyMultiWords(), market: 'US', popularity: 100, limit: 5 }, function (err, result) {
         if (err) {
             return console.log("Error Occurred: " + err);
         } else {
