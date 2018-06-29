@@ -77,7 +77,7 @@ function twitter() {
 };
 
 function spotifyIt() {
-    spotify.search({ type: 'track', query: crazyMultiWords(), market: 'US', popularity: 100, limit: 5 }, function (err, result) {
+    spotify.search({ type: 'track', query: argumentTwo, market: 'US', popularity: 100, limit: 5 }, function (err, result) {
         if (err) {
             return console.log("Error Occurred: " + err);
         } else {
